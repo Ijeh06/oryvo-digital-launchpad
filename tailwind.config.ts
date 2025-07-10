@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,16 +53,35 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				navy: {
+					DEFAULT: '#002244',
+					50: '#e6f0ff',
+					100: '#b3d1ff',
+					200: '#80b3ff',
+					300: '#4d94ff',
+					400: '#1a75ff',
+					500: '#002244',
+					600: '#001e3d',
+					700: '#001a36',
+					800: '#00152e',
+					900: '#001127'
+				},
+				lightgray: {
+					DEFAULT: '#F4F4F4',
+					50: '#ffffff',
+					100: '#fafafa',
+					200: '#F4F4F4',
+					300: '#eeeeee',
+					400: '#e8e8e8',
+					500: '#e2e2e2',
+					600: '#bcbcbc',
+					700: '#969696',
+					800: '#707070',
+					900: '#4a4a4a'
 				}
+			},
+			fontFamily: {
+				sans: ['Open Sans', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
