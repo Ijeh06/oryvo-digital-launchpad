@@ -11,21 +11,21 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="hero" className="bg-gradient-to-b from-white to-lightgray-200 py-20 lg:py-32">
+    <section id="hero" className="bg-gradient-to-b from-background to-secondary py-20 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy dark:text-primary mb-6 leading-tight">
             Enterprise-Grade Project Management – Delivered Digitally
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
             Access a full-scope digital toolkit for managing complex projects — with optional remote advisory from certified experts. No meetings. No phone calls. 100% online.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button 
               size="lg" 
-              className="bg-navy hover:bg-navy-600 text-white px-8 py-4 text-lg font-semibold"
+              className="bg-navy hover:bg-navy-600 text-white dark:bg-primary dark:text-navy dark:hover:bg-primary/90 px-8 py-4 text-lg font-semibold"
               onClick={() => scrollToSection('pricing')}
             >
               Buy Digital Toolkit
@@ -34,7 +34,7 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-navy text-navy hover:bg-navy hover:text-white px-8 py-4 text-lg font-semibold"
+              className="border-navy text-navy hover:bg-navy hover:text-white dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-navy px-8 py-4 text-lg font-semibold"
               onClick={() => scrollToSection('contact')}
             >
               Request Custom Proposal
@@ -42,7 +42,7 @@ const HeroSection = () => {
           </div>
 
           {/* Trust Signals */}
-          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-green-600" />
               <span>Secure Checkout</span>
