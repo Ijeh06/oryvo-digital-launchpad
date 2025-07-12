@@ -2,10 +2,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, FileText, BarChart3, Shield, Users, Mail } from 'lucide-react';
 import { useStaggerAnimation } from '@/hooks/useGSAP';
+import { useDraggable } from '@/hooks/useDraggable';
 
 const WhatIncluded = () => {
   const featuresRef = useStaggerAnimation('.feature-item', 0.1);
   const cardsRef = useStaggerAnimation('.card-item', 0.2);
+  
+  useDraggable();
 
   const toolkitFeatures = [
     {
@@ -48,7 +51,12 @@ const WhatIncluded = () => {
   ];
 
   return (
-    <section id="solutions" className="py-20 bg-white">
+    <section id="solutions" className="py-20 bg-white relative overflow-hidden container">
+      {/* Draggable Flair Elements */}
+      <div className="flair--1 absolute top-10 right-16 w-14 h-14 bg-blue-500/15 rounded-full cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--3b absolute bottom-20 left-16 w-10 h-10 bg-navy/10 rounded-lg cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--4b absolute top-40 left-32 w-18 h-6 bg-green-500/20 rounded-full cursor-grab active:cursor-grabbing"></div>
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">

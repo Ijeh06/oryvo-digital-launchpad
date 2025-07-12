@@ -1,8 +1,11 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Users, Rocket, Building2, Briefcase, Cog } from 'lucide-react';
+import { useDraggable } from '@/hooks/useDraggable';
 
 const WhoItsFor = () => {
+  useDraggable();
+
   const targetAudiences = [
     {
       icon: <Users className="h-8 w-8" />,
@@ -32,7 +35,12 @@ const WhoItsFor = () => {
   ];
 
   return (
-    <section className="py-20 bg-lightgray-200">
+    <section className="py-20 bg-lightgray-200 relative overflow-hidden container">
+      {/* Draggable Flair Elements */}
+      <div className="flair--1 absolute top-12 right-12 w-16 h-16 bg-navy/5 rounded-full cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--3b absolute bottom-16 left-24 w-14 h-14 bg-blue-500/10 rounded-lg cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--4b absolute top-32 left-40 w-20 h-10 bg-green-500/15 rounded-full cursor-grab active:cursor-grabbing"></div>
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">

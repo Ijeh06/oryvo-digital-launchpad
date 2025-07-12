@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Zap } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { useDraggable } from '@/hooks/useDraggable';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -10,6 +11,8 @@ const HeroSection = () => {
   const subheadlineRef = useRef<HTMLParagraphElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
   const trustSignalsRef = useRef<HTMLDivElement>(null);
+
+  useDraggable();
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -63,7 +66,12 @@ const HeroSection = () => {
   };
 
   return (
-    <section ref={heroRef} id="hero" className="bg-gradient-to-b from-background to-secondary py-20 lg:py-32">
+    <section ref={heroRef} id="hero" className="bg-gradient-to-b from-background to-secondary py-20 lg:py-32 relative overflow-hidden container">
+      {/* Draggable Flair Elements */}
+      <div className="flair--1 absolute top-20 left-10 w-16 h-16 bg-navy/10 rounded-full cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--3b absolute top-32 right-20 w-12 h-12 bg-blue-500/20 rounded-lg cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--4b absolute bottom-32 left-20 w-20 h-8 bg-green-500/15 rounded-full cursor-grab active:cursor-grabbing"></div>
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
           <h1 

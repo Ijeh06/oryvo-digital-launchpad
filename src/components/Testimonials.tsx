@@ -1,8 +1,11 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, Quote } from 'lucide-react';
+import { useDraggable } from '@/hooks/useDraggable';
 
 const Testimonials = () => {
+  useDraggable();
+
   const testimonials = [
     {
       quote: "We used the ORYVO framework to replan our entire project portfolio. Results were immediate. The team was responsive, and everything worked via email only.",
@@ -17,7 +20,12 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-lightgray-200">
+    <section className="py-20 bg-lightgray-200 relative overflow-hidden container">
+      {/* Draggable Flair Elements */}
+      <div className="flair--1 absolute top-20 left-16 w-12 h-12 bg-blue-500/20 rounded-full cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--3b absolute bottom-32 right-20 w-18 h-18 bg-navy/10 rounded-lg cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--4b absolute top-48 right-32 w-16 h-8 bg-green-500/25 rounded-full cursor-grab active:cursor-grabbing"></div>
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
