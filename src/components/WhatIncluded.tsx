@@ -1,8 +1,12 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, FileText, BarChart3, Shield, Users, Mail } from 'lucide-react';
+import { useStaggerAnimation } from '@/hooks/useGSAP';
 
 const WhatIncluded = () => {
+  const featuresRef = useStaggerAnimation('.feature-item', 0.1);
+  const cardsRef = useStaggerAnimation('.card-item', 0.2);
+
   const toolkitFeatures = [
     {
       icon: <BarChart3 className="h-6 w-6" />,
@@ -55,9 +59,9 @@ const WhatIncluded = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div ref={cardsRef} className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* ORYVO Project Delivery Toolkit */}
-          <Card className="border-2 border-navy-100">
+          <Card className="border-2 border-navy-100 card-item hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-navy flex items-center gap-3">
                 <CheckCircle className="h-8 w-8 text-green-600" />
@@ -65,9 +69,9 @@ const WhatIncluded = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <div ref={featuresRef} className="space-y-4">
                 {toolkitFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <div key={index} className="flex items-start gap-3 feature-item hover:bg-gray-50 p-2 rounded transition-colors duration-200">
                     <div className="text-navy mt-1">{feature.icon}</div>
                     <div>
                       <h4 className="font-semibold text-gray-900">{feature.title}</h4>
@@ -80,7 +84,7 @@ const WhatIncluded = () => {
           </Card>
 
           {/* Optional: Remote Advisory Support */}
-          <Card className="border-2 border-blue-100">
+          <Card className="border-2 border-blue-100 card-item hover:shadow-lg transition-shadow duration-300">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-navy flex items-center gap-3">
                 <Mail className="h-8 w-8 text-blue-600" />
@@ -91,7 +95,7 @@ const WhatIncluded = () => {
             <CardContent>
               <div className="space-y-3">
                 {advisoryFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
+                  <div key={index} className="flex items-center gap-3 feature-item hover:bg-blue-50 p-2 rounded transition-colors duration-200">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
                     <span className="text-gray-700">{feature}</span>
                   </div>
