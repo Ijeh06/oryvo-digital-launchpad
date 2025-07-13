@@ -2,8 +2,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Check, Mail, Clock, Shield } from 'lucide-react';
+import { useStaggerAnimation } from '@/hooks/useGSAP';
+import { useDraggable } from '@/hooks/useDraggable';
+import { gsap } from 'gsap';
 
 const PricingSection = () => {
+  const cardsRef = useStaggerAnimation('.pricing-card', 0.2);
+  
+  useDraggable();
+
   const packages = [
     {
       name: "Basic Toolkit",
@@ -55,12 +62,37 @@ const PricingSection = () => {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: element, offsetY: 80 },
+        ease: "power2.inOut"
+      });
     }
   };
 
+  const handleCardHover = (e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      y: -10,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  };
+
+  const handleCardLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      y: 0,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  };
+
   return (
-    <section id="pricing" className="py-20 bg-white">
+    <section id="pricing" className="py-20 bg-white relative overflow-hidden container">
+      {/* Draggable Flair Elements */}
+      <div className="flair--1 absolute top-16 left-20 w-12 h-12 bg-blue-500/10 rounded-full cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--3b absolute bottom-24 right-24 w-16 h-16 bg-navy/15 rounded-lg cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--4b absolute top-60 right-40 w-24 h-8 bg-green-500/10 rounded-full cursor-grab active:cursor-grabbing"></div>
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
@@ -73,7 +105,7 @@ const PricingSection = () => {
           {/* Benefits */}
           <div className="flex flex-wrap justify-center gap-6 text-sm">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center gap-2 text-green-600">
+              <div key={index} className="flex items-center gap-2 text-green-600 hover:scale-110 transition-transform duration-200">
                 {benefit.icon}
                 <span className="font-medium">{benefit.text}</span>
               </div>
@@ -81,11 +113,13 @@ const PricingSection = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div ref={cardsRef} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
-              className={`relative ${pkg.popular ? 'border-2 border-navy shadow-xl scale-105' : 'border border-gray-200'}`}
+              className={`relative pricing-card cursor-pointer ${pkg.popular ? 'border-2 border-navy shadow-xl scale-105' : 'border border-gray-200'}`}
+              onMouseEnter={handleCardHover}
+              onMouseLeave={handleCardLeave}
             >
               {pkg.popular && (
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -118,7 +152,7 @@ const PricingSection = () => {
                 </ul>
                 
                 <Button 
-                  className={`w-full ${pkg.popular ? 'bg-navy hover:bg-navy-600' : 'bg-gray-900 hover:bg-gray-800'} text-white`}
+                  className={`w-full ${pkg.popular ? 'bg-navy hover:bg-navy-600' : 'bg-gray-900 hover:bg-gray-800'} text-white hover:scale-105 transition-transform duration-200`}
                   onClick={scrollToContact}
                 >
                   Get Started
