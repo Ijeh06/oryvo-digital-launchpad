@@ -49,7 +49,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/c4eb5701-3567-4d32-bf75-c08df8e3d668.png" 
               alt="ORYVO PROJECTS"
-              className="h-8 w-auto mr-3"
+              className="h-8 w-auto mr-3 invert dark:invert-0"
             />
             <h1 className="text-xl font-bold text-navy dark:text-primary">
               ORYVO PROJECTS
