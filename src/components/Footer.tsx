@@ -8,11 +8,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center mb-4">
+            <div className="flex items-center justify-between mb-4">
               <img 
                 src="/IMG/Oryvo.png" 
                 alt="ORYVO PROJECTS"
-                className="h-20 w-20 mr-3 brightness-0 invert"
+                className="h-16 w-16 mr-4 brightness-0 invert align-middle"
               />
               <h3 className="text-2xl font-bold"></h3>
             </div>
