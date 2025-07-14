@@ -8,7 +8,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">ORYVO PROJECTS</h3>
+            <div className="flex items-center mb-4">
+              <img 
+                src="/lovable-uploads/c4eb5701-3567-4d32-bf75-c08df8e3d668.png" 
+                alt="ORYVO PROJECTS"
+                className="h-8 w-auto mr-3 brightness-0 invert"
+              />
+              <h3 className="text-2xl font-bold">ORYVO PROJECTS</h3>
+            </div>
             <p className="text-gray-300 mb-4">
               Enterprise-grade project management solutions delivered 100% digitally. 
               No meetings, no phone calls, just results.
@@ -26,10 +33,10 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-300">
               <li>
-                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                <a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a>
               </li>
               <li>
                 <a href="#solutions" className="hover:text-white transition-colors">Solutions</a>

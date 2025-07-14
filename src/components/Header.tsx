@@ -46,10 +46,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            {/* <h1 className="text-xl font-bold text-navy dark:text-primary">
-              ORYVO PROJECT
-            </h1> */}
-            <img src="" alt="" />
+            <h1 className="text-xl font-bold text-navy dark:text-primary">
+              ORYVO PROJECTS
+            </h1>
           </div>
 
           {/* Desktop Navigation */}
