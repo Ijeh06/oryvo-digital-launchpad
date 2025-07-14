@@ -10,11 +10,11 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <img 
-                src="/lovable-uploads/c4eb5701-3567-4d32-bf75-c08df8e3d668.png" 
+                src="/IMG/Oryvo.png" 
                 alt="ORYVO PROJECTS"
-                className="h-8 w-auto mr-3 brightness-0 invert"
+                className="h-20 w-20 mr-3 brightness-0 invert"
               />
-              <h3 className="text-2xl font-bold">ORYVO PROJECTS</h3>
+              <h3 className="text-2xl font-bold"></h3>
             </div>
             <p className="text-gray-300 mb-4">
               Enterprise-grade project management solutions delivered 100% digitally. 
