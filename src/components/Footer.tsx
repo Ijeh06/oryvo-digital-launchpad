@@ -15,8 +15,8 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-2 text-gray-300">
               <Mail className="h-5 w-5" />
-              <a href="mailto:projects@oryvo.com" className="hover:text-white transition-colors">
-                projects@oryvo.com
+              <a href="mailto:oryvoprojects1@gmail.com" className="hover:text-white transition-colors">
+                oryvoprojects1@gmail.com
               </a>
             </div>
           </div>
@@ -49,13 +49,13 @@ const Footer = () => {
                 <p className="text-sm">We respond within 24 hours</p>
               </div>
               <div className="flex gap-4">
-                <a 
+                {/* <a 
                   href="#" 
                   className="text-gray-300 hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-6 w-6" />
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
