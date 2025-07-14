@@ -110,7 +110,7 @@ const TermsOfService = () => {
               <p className="text-foreground font-medium mt-2">
                 ORYVO PROJECTS FZCO<br />
                 Dubai, UAE<br />
-                Email: projects@oryvo.com
+                Email: oryvoprojects1@gmail.com
               </p>
             </div>
           </section>
