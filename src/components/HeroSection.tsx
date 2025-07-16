@@ -4,6 +4,7 @@ import { ArrowRight, Shield, Zap } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { useDraggable } from '@/hooks/useDraggable';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -11,6 +12,8 @@ const HeroSection = () => {
   const subheadlineRef = useRef<HTMLParagraphElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
   const trustSignalsRef = useRef<HTMLDivElement>(null);
+
+  const navigate = useNavigate();
 
   useDraggable();
 
@@ -54,17 +57,6 @@ const HeroSection = () => {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: { y: element, offsetY: 80 },
-        ease: "power2.inOut"
-      });
-    }
-  };
-
   return (
     <section ref={heroRef} id="hero" className="bg-gradient-to-b from-background to-secondary py-20 lg:py-32 relative overflow-hidden container">
       {/* Draggable Flair Elements */}
@@ -92,7 +84,7 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="bg-navy hover:bg-navy-600 text-white dark:bg-primary dark:text-navy dark:hover:bg-primary/90 px-8 py-4 text-lg font-semibold hover:scale-105 transition-transform duration-200"
-              onClick={() => scrollToSection('pricing')}
+              onClick={() => navigate('/buy-toolkit')}
             >
               Buy Digital Toolkit
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -101,7 +93,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg" 
               className="border-navy text-navy hover:bg-navy hover:text-white dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-navy px-8 py-4 text-lg font-semibold hover:scale-105 transition-transform duration-200"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => navigate('/request-proposal')}
             >
               Request Custom Proposal
             </Button>

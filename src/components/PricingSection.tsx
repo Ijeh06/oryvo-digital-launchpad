@@ -87,25 +87,25 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-white relative overflow-hidden container">
+    <section id="pricing" className="py-20 bg-white dark:bg-card relative overflow-hidden container">
       {/* Draggable Flair Elements */}
-      <div className="flair--1 absolute top-16 left-20 w-12 h-12 bg-blue-500/10 rounded-full cursor-grab active:cursor-grabbing"></div>
-      <div className="flair--3b absolute bottom-24 right-24 w-16 h-16 bg-navy/15 rounded-lg cursor-grab active:cursor-grabbing"></div>
-      <div className="flair--4b absolute top-60 right-40 w-24 h-8 bg-green-500/10 rounded-full cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--1 absolute top-16 left-20 w-12 h-12 bg-blue-500/10 dark:bg-blue-500/20 rounded-full cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--3b absolute bottom-24 right-24 w-16 h-16 bg-navy/15 dark:bg-navy/40 rounded-lg cursor-grab active:cursor-grabbing"></div>
+      <div className="flair--4b absolute top-60 right-40 w-24 h-8 bg-green-500/10 dark:bg-green-500/20 rounded-full cursor-grab active:cursor-grabbing"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy dark:text-white mb-4">
             Pricing Packages
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
             Choose the package that fits your project needs
           </p>
           
           {/* Benefits */}
           <div className="flex flex-wrap justify-center gap-6 text-sm">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center gap-2 text-green-600 hover:scale-110 transition-transform duration-200">
+              <div key={index} className="flex items-center gap-2 text-green-600 dark:text-green-400 hover:scale-110 transition-transform duration-200">
                 {benefit.icon}
                 <span className="font-medium">{benefit.text}</span>
               </div>
@@ -117,26 +117,26 @@ const PricingSection = () => {
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
-              className={`relative pricing-card cursor-pointer ${pkg.popular ? 'border-2 border-navy shadow-xl scale-105' : 'border border-gray-200'}`}
+              className={`relative pricing-card cursor-pointer bg-white dark:bg-card ${pkg.popular ? 'border-2 border-navy dark:border-primary shadow-xl scale-105' : 'border border-gray-200 dark:border-gray-700'}`}
               onMouseEnter={handleCardHover}
               onMouseLeave={handleCardLeave}
             >
               {pkg.popular && (
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <span className="bg-navy text-white px-4 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-navy dark:bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
                     Most Popular
                   </span>
                 </div>
               )}
               
               <CardHeader className="text-center pb-4">
-                <CardTitle className="text-2xl font-bold text-navy mb-2">
+                <CardTitle className="text-2xl font-bold text-navy dark:text-white mb-2">
                   {pkg.name}
                 </CardTitle>
-                <div className="text-4xl font-bold text-navy mb-2">
+                <div className="text-4xl font-bold text-navy dark:text-white mb-2">
                   {pkg.price}
                 </div>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   {pkg.description}
                 </p>
               </CardHeader>
@@ -145,14 +145,14 @@ const PricingSection = () => {
                 <ul className="space-y-3 mb-8">
                   {pkg.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <Check className="h-5 w-5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                      <span className="text-gray-700 dark:text-gray-200">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 
                 <Button 
-                  className={`w-full ${pkg.popular ? 'bg-navy hover:bg-navy-600' : 'bg-gray-900 hover:bg-gray-800'} text-white hover:scale-105 transition-transform duration-200`}
+                  className={`w-full ${pkg.popular ? 'bg-navy hover:bg-navy-600 dark:bg-primary dark:hover:bg-primary/80' : 'bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600'} text-white hover:scale-105 transition-transform duration-200`}
                   onClick={scrollToContact}
                 >
                   Get Started

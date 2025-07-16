@@ -4,10 +4,13 @@ import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Menu, X } from 'lucide-react';
 import { gsap } from 'gsap';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,24 +21,34 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: { y: element, offsetY: 80 },
-        ease: "power2.inOut"
-      });
+  // Helper for scrolling to section
+  const scrollToSection = (sectionId) => {
+    setTimeout(() => {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 0);
+  };
+
+  // Navigation handler
+  const handleNav = (route, sectionId) => {
+    if (sectionId) {
+      if (location.pathname === '/') {
+        scrollToSection(sectionId);
+      } else {
+        navigate('/');
+        setTimeout(() => scrollToSection(sectionId), 200);
+      }
+      setIsMenuOpen(false);
+    } else {
+      navigate(route);
+      setIsMenuOpen(false);
     }
-    setIsMenuOpen(false);
   };
 
   const navItems = [
-    { name: 'Home', id: 'hero' },
-    { name: 'What\'s Included', id: 'what-included' },
-    { name: 'Who It\'s For', id: 'who-its-for' },
-    { name: 'Pricing', id: 'pricing' },
-    { name: 'Contact', id: 'contact' }
+    { name: 'Home', id: 'home', route: '/' },
+    { name: 'Pricing', id: 'pricing', route: '/', section: 'pricing' },
+    { name: 'Contact', id: 'contact', route: '/', section: 'contact' },
   ];
 
   return (
@@ -50,7 +63,6 @@ const Header = () => {
                 src="/IMG/Oryvo.png" 
                 alt="ORYVO PROJECTS"
                 className="h-16 w-16 mr-4 p-1 bg-slate-800 rounded-full"
-
               />
           </div>
 
@@ -60,7 +72,7 @@ const Header = () => {
               <Button
                 key={item.id}
                 variant="ghost"
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNav(item.route, item.section)}
                 className="text-navy dark:text-primary hover:text-navy-600 dark:hover:text-primary/80"
               >
                 {item.name}
@@ -71,7 +83,6 @@ const Header = () => {
           {/* Theme Toggle and Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             <ThemeToggle />
-            
             {/* Mobile menu button */}
             <Button
               variant="ghost"
@@ -92,7 +103,7 @@ const Header = () => {
                 <Button
                   key={item.id}
                   variant="ghost"
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNav(item.route, item.section)}
                   className="w-full text-left justify-start text-navy dark:text-primary hover:text-navy-600 dark:hover:text-primary/80"
                 >
                   {item.name}
