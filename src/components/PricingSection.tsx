@@ -123,7 +123,7 @@ const PricingSection = () => {
             >
               {pkg.popular && (
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <span className="bg-navy dark:bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-navy dark:bg-primary text-white dark:text-black px-4 py-1 rounded-full text-sm font-semibold shadow">
                     Most Popular
                   </span>
                 </div>
@@ -152,7 +152,7 @@ const PricingSection = () => {
                 </ul>
                 
                 <Button 
-                  className={`w-full ${pkg.popular ? 'bg-navy hover:bg-navy-600 dark:bg-primary dark:hover:bg-primary/80' : 'bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600'} text-white hover:scale-105 transition-transform duration-200`}
+                  className={`w-full ${pkg.popular ? 'bg-navy hover:bg-navy-600 dark:bg-primary dark:hover:bg-primary/80' : 'bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600'} text-white dark:text-black hover:scale-105 transition-transform duration-200`}
                   onClick={scrollToContact}
                 >
                   Get Started
